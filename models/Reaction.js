@@ -11,15 +11,7 @@ const reactionSchema = new Schema(
             get: (date) => {
             return date.toLocaleDateString(); }},
     },
-    {
-        toJSON:{
-            virtuals: true,
-        },
-        id: false,
-    }
+
     );
     
-    
-    const Reaction = model('reaction', reactionSchema);
-    
-    module.exports = Reaction;
+    module.exports = { reactionSchema };
