@@ -10,6 +10,7 @@ router.get('/', async(req, res) =>{
 
 //TODO: 
 //GET ALL USERS
+
 //GET SINGLE USER BI TS _ID
 //POST A NEW USER
 //PUT TO UPDATE A USER BY ITS _ID
