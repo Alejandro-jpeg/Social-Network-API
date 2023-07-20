@@ -13,7 +13,7 @@ async getUsers(req, res) {
 //GET SINGLE USER BY TS _ID
 async getSingleUser(req, res) {
     try {
-        const user = await Users.findOne({_id:req.params.userId });
+        const user = await User.findOne({_id:req.params.userId });
         if(!user){
             return res.status(404).json({message: 'not a single user found that matches that id'})
         }
@@ -36,7 +36,7 @@ async updateUser(req, res){
     try {
         const user = await User.findOneAndUpdate(
             {_id: req.params.userId},
-            {$set: req.body.username },
+            {$set: req.body },
             {runValidators: true, new: true}
         );
         if(!user){
