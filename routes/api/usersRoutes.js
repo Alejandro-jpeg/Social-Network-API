@@ -6,10 +6,9 @@ const {
     updateUser,
     deleteUser
 } = require('../../controllers/userController');
-//TODO: 
+
 // /api/users
 router.route('/').get(getUsers).post(createUser);
-
 // /api/users/:userId
 router.route('/:userId')
     .get(getSingleUser)

@@ -13,7 +13,7 @@ module.exports = {
     //GET A THOUGHT BY ITS ID
     async getSingleThought(req, res) {
         try {
-            const thought = await Thought.findOne({_id:req.params.ThoughtId });
+            const thought = await Thought.findOne({_id:req.params.thoughtId });
             if(!thought){
                 return res.status(404).json({message: 'not a single Thought found that matches that id'})
             }
@@ -28,15 +28,14 @@ module.exports = {
             const thought = await Thought.create(req.body);
             const user = await User.findOneAndUpdate(
                 { _id: req.body.userId },
-                { $addToSet: {thoughts: thought._id} },
+                { $push: {thoughts: thought._id} },
                 { new: true }
-            );
+            )
             if (!user) {
                 return res.status(404).json({
                   message: 'Thought created, but found no user with that ID',
                 })
               }
-
             res.json(thought);
         } catch (err) {
             res.status(500).json(err);
@@ -65,6 +64,7 @@ module.exports = {
             if(!thought){
                 return res.status(404).json({message: 'not a single thought found that matches that id'})
             }
+            res.json({ message: 'thought has been erased' })
         } catch (err) {
             res.status(500).json(err);
         }
