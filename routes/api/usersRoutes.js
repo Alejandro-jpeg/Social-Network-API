@@ -16,7 +16,7 @@ router.route('/:userId')
     .delete(deleteUser);
 
 //TODO: :userId/friends/:friendId
-//POST TO ADD A NEW FRIEND TO A USERS FRIEND LIST
-//DELETE TO REMOVE A FRIEND FROM A USERS FRIEND LIST
+    //POST TO ADD A NEW FRIEND TO A USERS FRIEND LIST
+    //DELETE TO REMOVE A FRIEND FROM A USERS FRIEND LIST
 
 module.exports = router;
